@@ -2,10 +2,6 @@ from gensim.models import Word2Vec
 import numpy as np
 from gensim.models.word2vec import Text8Corpus
 import csv
-from nltk import pos_tag
-from nltk.corpus import wordnet as wn
-from nltk.corpus import stopwords
-import nltk
 import matplotlib.pyplot as plt
 
 
@@ -56,40 +52,13 @@ def evaluate_prediction_with_rank(model, sentence, target_index):
         print(f"Warning: No valid context words for sentence at index {target_index}")
         return None
 
-    # Calculate context vector and similarities based on word type
-
-    nltk.download('averaged_perceptron_tagger')
-    nltk.download('wordnet')
-    nltk.download('stopwords')
-
-    # Map NLTK POS tags to WordNet POS tags
-    def get_wordnet_pos(treebank_tag):
-        if treebank_tag.startswith('J'):
-            return wn.ADJ
-        elif treebank_tag.startswith('V'):
-            return wn.VERB
-        elif treebank_tag.startswith('N'):
-            return wn.NOUN
-        elif treebank_tag.startswith('R'):
-            return wn.ADV
-        else:
-            return None
-
-    # Tag words in the vocabulary with their POS
-    vocab_pos = {word: get_wordnet_pos(tag) for word, tag in pos_tag(model.wv.index_to_key)}
-
-    # Get the POS of the target word
-    target_pos = get_wordnet_pos(pos_tag([target_word])[0][1])
-
-    # Calculate context vector and similarities for words of the same type
+    # Calculate context vector and similarities
     context_vector = np.mean(context_vectors, axis=0)
     similarities = []
     for word in model.wv.index_to_key:
-        word_pos = vocab_pos.get(word)
-        if word_pos == target_pos:  # Only consider words of the same type
-            sim = np.dot(context_vector, model.wv[word]) / (
-                np.linalg.norm(context_vector) * np.linalg.norm(model.wv[word]))
-            similarities.append((word, sim))
+        sim = np.dot(context_vector, model.wv[word]) / (
+            np.linalg.norm(context_vector) * np.linalg.norm(model.wv[word]))
+        similarities.append((word, sim))
     
     # Sort by similarity and get rank
     ranked_words = sorted(similarities, key=lambda x: -x[1])
@@ -109,7 +78,6 @@ for sentence, idx, label in test_data:
         results[label].append(rank)
     else:
         failed_cases[label].append(" ".join(sentence))
-    print(f"Sentence: {' '.join(sentence)} | Target Index: {idx} | Label: {label} | Rank: {rank if rank is not None else 'Failed'}")
 
 # Calculate and display statistics
 for label in ["garden", "control"]:
@@ -128,7 +96,7 @@ avg_ranks = [np.mean(results["garden"]) if results["garden"] else 0,
             np.mean(results["control"]) if results["control"] else 0]
 
 bars = ax.bar(labels, avg_ranks, color=['red', 'green'])
-ax.set_ylabel('Average Rank (Lower is Better)')
+ax.set_ylabel('Average Rank')
 ax.set_title('CBOW Model Performance: Garden Path vs Control Sentences')
 ax.grid(axis='y', linestyle='--', alpha=0.7)
 

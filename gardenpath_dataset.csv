@@ -1,0 +1,51 @@
+sentence,target_index,label
+"The player tossed the ball interfered with the other team.",2,garden
+"The player who was tossed the ball interfered with the other team.",4,control
+"The florist sent the flowers was pleased.",2,garden
+"The florist who was sent the flowers was pleased.",4,control
+"The polyester clothing is made of is made in Mississippi.",5,garden
+"The polyester that clothing is made of is made in Mississippi.",6,control
+"The sour drink from the ocean.",2,garden
+"The sour people drink from the ocean.",3,control
+"We painted the wall with cracks.",1,garden
+"We painted the wall that had cracks.",1,control
+"The man who hunts ducks out on weekends.",3,garden
+"The man who hunts leaves town on the weekends.",3,control
+"The raft floated down the river sank.",2,garden
+"The raft that was floated down the river sank.",5,control
+"When Fred eats food gets thrown.",2,garden
+"When Fred eats, food gets thrown.",2,control
+"Mary gave the child the dog bit a Band-Aid.",4,garden
+"Mary gave the child bitten by the dog a Band-Aid.",4,control
+"The girl told the story cried.",2,garden
+"The girl who was told the story cried.",4,control
+"I convinced her children are noisy.",2,garden
+"I convinced her that children are noisy.",3,control
+"Fat people eat accumulates.",2,garden
+"The fat that people eat accumulates.",4,control
+"I know the words to that song about the queen don’t rhyme.",2,garden
+"I know that the words to that song about the queen don’t rhyme.",3,control
+"She told me a little white lie will come back to haunt me.",5,garden
+"She told me that a little white lie will come back to haunt me.",4,control
+"The dog I had really loved bones.",4,garden
+"The dog that I had really loved bones.",5,control
+"That Jill is never here hurts.",4,garden
+"The fact that Jill is never here hurts my feelings.",6,control
+"The man who whistles tunes pianos.",3,garden
+"The man who whistles fixes pianos.",3,control
+"The complex houses married and single soldiers and their families.",2,garden
+"The complex has married and single soldiers and their families living in it.",2,control
+"The author wrote the novel was likely to be a best-seller.",2,garden
+"The author who wrote the novel was likely to be a best-seller.",4,control
+"The tomcat curled up on the cushion seemed friendly.",2,garden
+"The tomcat that curled up on the cushion seemed friendly.",4,control
+"The man returned to his house was happy.",2,garden
+"The man who was returned to his house was happy.",4,control
+"The government plans to raise taxes were defeated.",2,garden
+"The government policies to raise taxes were defeated.",2,control
+"The old man the boats.",2,garden
+"The old people man the boats.",3,control
+"The horse raced past the barn fell.",2,garden
+"The horse that was raced past the barn fell.",4,control
+"The complex houses married and single soldiers.",2,garden
+"The complex contains houses for married and single.",3,control

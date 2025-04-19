@@ -17,10 +17,10 @@ Workflow
 Dataset Example
 The gardenpath_dataset.csv contains sentences like:
 Sentence	| Target Index	| Label
-The player tossed the ball interfered with the other team.	| 2	| garden
-The player who was tossed the ball interfered with the other team.	| 4	| control
+  - The player tossed the ball interfered with the other team.	| 2	| garden
+  - The player who was tossed the ball interfered with the other team.	| 4	| control
 
 Key Features:
-  - Training: Train a CBOW model on a large corpus (text8) for word embeddings. //
-  - Evaluation: Analyze the model's ability to handle ambiguous sentences. //
-  - Visualization: Compare performance on garden path vs. control sentences using statistical metrics and plots. //
+  - Training: Train a CBOW model on a large corpus (text8) for word embeddings. 
+  - Evaluation: Analyze the model's ability to handle ambiguous sentences. 
+  - Visualization: Compare performance on garden path vs. control sentences using statistical metrics and plots. 

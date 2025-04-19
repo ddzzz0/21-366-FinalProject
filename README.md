@@ -15,8 +15,8 @@ Workflow
     Results include average and median ranks for garden path and control sentences, along with a bar chart visualization.
 
 Dataset Example
-The gardenpath_dataset.csv contains sentences like:
-Sentence	| Target Index	| Label
+  - The gardenpath_dataset.csv contains sentences like:
+  - Sentence	| Target Index	| Label
   - The player tossed the ball interfered with the other team.	| 2	| garden
   - The player who was tossed the ball interfered with the other team.	| 4	| control
 

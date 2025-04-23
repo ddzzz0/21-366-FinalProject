@@ -1,22 +1,17 @@
 from gensim.models import Word2Vec
-import numpy as np
-from gensim.models.word2vec import Text8Corpus
-import matplotlib.pyplot as plt
-
-# Train CBOW on Wikipedia corpus (text8) ---
-
-#Download text8 dataset if not already present
 import gensim.downloader as api
+
+# Download text8 dataset if not already present
 dataset = api.load("text8")
 
-# Train CBOW model on text8
+# Train CBOW model on text8 with adjusted parameters
 cbow_model = Word2Vec(
     sentences=dataset,
-    vector_size=100,  # Increased dimension for better representation
-    window=5,         # Larger window for more context
-    min_count=5,      # Ignore words that appear less than 5 times
-    workers=4,        # More workers for faster training
+    vector_size=50,  # Reduced dimension for faster training and better generalization
+    window=3,        # Smaller window for local context
+    min_count=10,    # Ignore very rare words
+    workers=4,       # Number of worker threads
     sg=0,            # CBOW architecture
-    epochs=5         # Reduced epochs as we have much more data
+    epochs=10,       # Increased epochs for better training
 )
-cbow_model.save("cbow_text8.model")
+cbow_model.save("cbow_text8_optimized.model")

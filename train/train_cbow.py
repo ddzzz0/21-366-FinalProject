@@ -14,4 +14,4 @@ cbow_model = Word2Vec(
     sg=0,            # CBOW architecture
     epochs=10,       # Increased epochs for better training
 )
-cbow_model.save("cbow_text8_optimized.model")
+cbow_model.save("cbow_text8.model")

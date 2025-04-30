@@ -30,7 +30,7 @@ This project evaluates the performance of the Continuous Bag-of-Words (CBOW) wor
 ## Dataset Example
 The gardenpath_dataset.csv contains pairs of garden path and control sentences such as:
 ```
-  Sentence	                      | Target Index	| Label
+  Sentence	                       | Target Index	 | Label
   "The old man the boats"	        | 2	            | garden
   "The old people man the boats"	| 3	            | control
 ```
@@ -55,8 +55,6 @@ The gardenpath_dataset.csv contains pairs of garden path and control sentences s
 **Figure 1** shows that the baseline CBOW model performs significantly worse on garden path sentences than on control sentences, with higher median ranks indicating difficulty in resolving syntactic ambiguity.
 
 **Figure 2** demonstrates that the optimized CBOW model (with negative sampling and a wider context window) substantially improves performance on garden path sentences — reducing median rank by ~50% — while maintaining similar performance on control sentences.
-<img width="360" alt="image" src="https://github.com/user-attachments/assets/873d1cf2-379f-4c68-9b97-3ccb6c3aef90" />
-
-<img width="360" alt="image" src="https://github.com/user-attachments/assets/238b642d-c3c5-492a-b19d-b8e96fcb1516" />
+<img width="360" alt="image" src="https://github.com/user-attachments/assets/873d1cf2-379f-4c68-9b97-3ccb6c3aef90" />     <img width="360" alt="image" src="https://github.com/user-attachments/assets/238b642d-c3c5-492a-b19d-b8e96fcb1516" />
 
 

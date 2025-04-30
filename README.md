@@ -20,29 +20,43 @@ This project evaluates the performance of the Continuous Bag-of-Words (CBOW) wor
 └── run_case_study.py         #  Loads models and dataset, evaluates, and outputs results
 ```
 
-## Features
 
+## Features
 - **Training**: Train a CBOW model on a large corpus (text8) for word embeddings. 
 - **Evaluation**: Analyze the model's ability to handle ambiguous sentences. 
 - **Visualization**: Compare performance on garden path vs. control sentences using statistical metrics and plots. 
 
+
 ## Dataset Example
-  - The gardenpath_dataset.csv contains pairs of garden path and control sentences such as:
+The gardenpath_dataset.csv contains pairs of garden path and control sentences such as:
 ```
-  Sentence	                                                          | Target Index	| Label
-  The player tossed the ball interfered with the other team.	        | 2	            | garden
-  The player who was tossed the ball interfered with the other team.	| 4	            | control
+  Sentence	                      | Target Index	| Label
+  "The old man the boats"	        | 2	            | garden
+  "The old people man the boats"	| 3	            | control
 ```
+- **sentence**: full sentence as a string
+- **target_index**: index of the syntactically important word to predict
+- **label**: either garden or control
+
 
 ## Workflow
-  - Train the CBOW Model:
-    Use the train_cbow.py script to train a CBOW model on the text8 dataset.
-    The trained model is saved as cbow_text8.model.
+**Model Training**:
+- Trained two CBOW models on the Wikipedia Text8 corpus using Gensim Word2Vec.
+- Baseline model: window size = 3, embedding size = 100, epochs = 5, no negative sampling.
+- Optimized model: negative sampling with 20 samples, window size = 5.
 
-  - Evaluate the Model:
-    Use the case_study.py script to evaluate the CBOW model on the gardenpath_dataset.csv file.
-    The dataset contains pairs of garden path and control sentences, along with the target word index.
+**Evaluation Setup**:
+- Used a custom dataset of garden path and control sentence pairs.
+- For each sentence, masked a syntactically important word (e.g., verb), predicted it from context.
+- Computed cosine similarity between averaged context vector and all vocabulary words.
+- Evaluated performance using the rank of the correct word: lower rank = better prediction.
 
-  - Compare Results:
-    The evaluation script computes the rank of the target word in the CBOW model's vocabulary based on its similarity to the context.
-    Results include average and median ranks for garden path and control sentences, along with a bar chart visualization.
+## Results
+**Figure 1** shows that the baseline CBOW model performs significantly worse on garden path sentences than on control sentences, with higher median ranks indicating difficulty in resolving syntactic ambiguity.
+
+**Figure 2** demonstrates that the optimized CBOW model (with negative sampling and a wider context window) substantially improves performance on garden path sentences — reducing median rank by ~50% — while maintaining similar performance on control sentences.
+<img width="360" alt="image" src="https://github.com/user-attachments/assets/873d1cf2-379f-4c68-9b97-3ccb6c3aef90" />
+
+<img width="360" alt="image" src="https://github.com/user-attachments/assets/238b642d-c3c5-492a-b19d-b8e96fcb1516" />
+
+

@@ -5,9 +5,9 @@ import csv
 import matplotlib.pyplot as plt
 
 # --- get cbow model and corresponding window size ---
-cbow = "cbow_text8_optimized.model"
+cbow = "models/cbow_text8_optimized.model"
 window_cbow = 3
-cbow_neg = "cbow_negsample_text8.model"
+cbow_neg = "models/cbow_negsample_text8.model"
 window_cbow_neg = 5
 
 # define which model to use
@@ -19,7 +19,7 @@ printPredictions = False
 # --- Load garden path and control sentences dataset ---
 test_data = []
 
-csv_file_path = "/Users/zhudian/Desktop/21366 research/gardenpath_dataset.csv"
+csv_file_path = "data/gardenpath_dataset.csv"
 with open(csv_file_path, mode='r', encoding='utf-8') as csv_file:
     csv_reader = csv.reader(csv_file)
     next(csv_reader)  # Skip the header line

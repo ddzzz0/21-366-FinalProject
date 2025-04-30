@@ -15,7 +15,7 @@ This project evaluates the performance of the Continuous Bag-of-Words (CBOW) wor
 │
 ├── models/                   # Stores trained models
 │   ├── cbow_text8.model      # Baseline model
-│   ├── cbow_neg.model        # Model with neg sampling
+│   ├── cbow_neg_text8.model        # Model with neg sampling
 │
 └── run_case_study.py         #  Loads models and dataset, evaluates, and outputs results
 ```

@@ -30,7 +30,7 @@ This project evaluates the performance of the Continuous Bag-of-Words (CBOW) wor
 ## Dataset Example
 The gardenpath_dataset.csv contains pairs of garden path and control sentences such as:
 ```
-  Sentence	                        | Target Index	  | Label
+  Sentence	                        | Target Index	   | Label
   "The old man the boats"	        | 2	            | garden
   "The old people man the boats"	| 3	            | control
 ```

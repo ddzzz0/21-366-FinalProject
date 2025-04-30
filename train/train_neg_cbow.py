@@ -18,4 +18,4 @@ cbow_model = Word2Vec(
      epochs=10,       # Increased epochs for better training
      negative=20,      # Commonly used value for negative sampling
 )
-cbow_model.save("cbow_negsample_text8.model")
+cbow_model.save("cbow_neg_text8.model")
